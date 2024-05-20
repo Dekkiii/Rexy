@@ -1,0 +1,75 @@
+
+
+
+.Solution {
+  font-size: 120px; /* Increase the font size */
+    display: flex;
+    align-items: center;
+}
+
+
+
+.fa-lightbulb-o { 
+  color:gold;
+}
+
+
+
+
+
+
+
+
+
+.collapsible {
+    background-color: #47b2d0;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 50%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #fdfdfd;
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+
+  .container {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+   }
+   
+   .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+   
+  .dot {
+    height: 50px;
+    width: 50px;
+    background-color: #47b2d0;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 30px;
+     color: #fff;
+     text-align: center;
+  }
+
+  
+.text-container {
+  margin-left: 100px;
+}
