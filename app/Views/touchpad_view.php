@@ -343,7 +343,7 @@ function toggleImage2() {
         <div class="card bg-light  position-relative">
             <span class="step-indicator">2</span><br>
           <div class="card-body text-center">
-            <button class="button"  onclick="toggleImage()">Show Image</button>
+            <button class="button-show"  onclick="toggleImage()">Show Image</button>
     	<div class="image-container" id="image3">
             <img id="pic" src="images/pic2.jpg" alt="Step 2 Image" style="display: none;"></div>
             <h3 class="card-title mb-3">Jane Doe</h3>
@@ -359,7 +359,7 @@ function toggleImage2() {
     <div class="card bg-light position-relative">
         <span class="step-indicator">3</span><br>
       <div class="card-body text-center">
-            <button class="button" onclick="toggleImage()">Show Image</button>
+            <button class="button-show" onclick="toggleImage()">Show Image</button>
             <div class="image-container" id="image4">
                 <img id="pic" src="images/pic3.jpg" alt="Step 3 Image" style="display: none;"></div>
         <h3 class="card-title mb-3">Steve Smith</h3>
@@ -433,7 +433,7 @@ html, body {
 }
 
 
-.button {
+.button-show {
     padding: 4px 8px;
     background-color: #286aba;
     color: #ffffff;
@@ -446,7 +446,7 @@ html, body {
     right: 10px; /* Adjust the distance from the right */
     
 }
-.button:hover {
+.button-show:hover {
     background-color: #1f4d85; 
 }
 
