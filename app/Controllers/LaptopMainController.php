@@ -9,43 +9,120 @@ class LaptopMainController extends BaseController
 {
     public function index()
     {
-        echo view('nav/header');
-        echo view('laptop_main');
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        echo view('nav/header',['userData' => $userData]);
+        echo view('laptop_main',['userData' => $userData]);
         echo view('nav/footer');
     }
 
     public function touchpad()
     {
-        echo view('nav/header');
-        echo view('touchpad_view');
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        echo view('nav/header',['userData' => $userData]);
+        echo view('touchpad_view',['userData' => $userData]);
         echo view('nav/footer');
     }
 
     public function audio()
     {
-        echo view('nav/header');
-        echo view('audio_view');
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        echo view('nav/header',['userData' => $userData]);
+        echo view('audio_view',['userData' => $userData]);
         echo view('nav/footer');
     }
 
     public function hinge()
     {
-        echo view('nav/header');
-        echo view('hinge_view');
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        echo view('nav/header',['userData' => $userData]);
+        echo view('hinge_view',['userData' => $userData]);
         echo view('nav/footer');
     }
     
     public function bsod()
     {
-        echo view('nav/header');
-        echo view('bsod_view');
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        echo view('nav/header',['userData' => $userData]);
+        echo view('bsod_view',['userData' => $userData]);
         echo view('nav/footer');
     }
     
     public function blank()
     {
-        echo view('nav/header');
-        echo view('blank_screen_view');
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        echo view('nav/header',['userData' => $userData]);
+        echo view('blank_screen_view',['userData' => $userData]);
         echo view('nav/footer');
     }
 }

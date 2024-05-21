@@ -15,7 +15,7 @@
         
 
             <nav class="navbar">
-                <a href="main/" class="active">Home</a>
+                <a href="home_view" class="active">Home</a>
                 <a href="laptop_main">Laptop/PC</a>
                 <a href="printer_main">Printer</a>
                 <a href="internet_main">Internet</a>

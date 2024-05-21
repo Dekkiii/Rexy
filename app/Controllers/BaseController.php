@@ -29,6 +29,14 @@ abstract class BaseController extends Controller
     protected $request;
 
     /**
+     * Instance of session service.
+     *
+     * @var \CodeIgniter\Session\Session
+     */
+    protected $session;
+
+    
+    /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
      * to all other controllers that extend BaseController.
@@ -36,12 +44,6 @@ abstract class BaseController extends Controller
      * @var array
      */
     protected $helpers = [];
-
-    /**
-     * Be sure to declare properties for any property fetch you initialized.
-     * The creation of dynamic property is deprecated in PHP 8.2.
-     */
-    // protected $session;
 
     /**
      * @return void
@@ -52,7 +54,32 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
+        $this->session = \Config\Services::session();
 
-        // E.g.: $this->session = \Config\Services::session();
+        // Check for session timeout
+        $this->checkSessionTimeout();
+    }
+
+    /**
+     * Check session timeout and destroy the session if inactive.
+     *
+     * @return void
+     */
+
+     
+    protected function checkSessionTimeout()
+    {
+        // Get the last activity timestamp from the session
+        $lastActivity = $this->session->get('last_activity');
+
+        // Check if last activity is set and exceeds the timeout period (e.g., 30 minutes)
+        if ($lastActivity && (time() - $lastActivity > 1800)) {
+            // Session has expired, destroy it
+            $this->session->destroy();
+            return redirect()->to(base_url('login'));
+        } else {
+            // Update last activity timestamp in the session
+            $this->session->set('last_activity', time());
+        }
     }
 }

@@ -5,9 +5,12 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('main/', 'Home::index');
-$routes->get('/', 'Home::index');
-$routes->get('slow', 'slowController::index');
+
+ $routes->get('/', 'Login::index');
+ $routes->get('login', 'Login::index');
+ $routes->post('login', "Login::authenticate");// Route for authenticating the login form
+$routes->get('home_view', 'Home::index');
+$routes->get('slow', 'SlowController::index');
 $routes->get('projector', 'ProjectorController::index');
 $routes->get('bsod', 'BsodController::index');
 $routes->get('blank', 'BlankController::index');
@@ -33,5 +36,3 @@ $routes->get('Email_Calendar', 'EmailMainController::calendarView');
 $routes->get('Email_Signature', 'EmailMainController::signatureView');
 $routes->get('Email_Plugins', 'EmailMainController::pluginsView');
 $routes->get('Email_Reading', 'EmailMainController::readingView');
-
-

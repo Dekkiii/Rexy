@@ -1,3 +1,24 @@
+<?php
+// Check if the session name is set
+session_start();
+
+// Set session timeout period in seconds (e.g., 30 minutes)
+$sessionTimeout = 1800; // 30 minutes
+
+// Function to check if the session is expired
+function isSessionExpired() {
+    $currentTime = time();
+    if (isset($_SESSION['last_activity']) && ($currentTime - $_SESSION['last_activity'] > $GLOBALS['sessionTimeout'])) {
+        // Session expired, destroy session
+        session_unset();
+        session_destroy();
+        return true;
+    }
+    $_SESSION['last_activity'] = $currentTime;
+    return false;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,8 +66,11 @@
             <!-- <img src="/img/HI REX.gif" alt=""> -->
             <h3>Hello, I am</h3>
             <h1>Rex</h1>
-            <p>Your Distriphil IT Star </p>
-
+            <?php if ($userData) : ?>
+            <p>Your Distriphil IT Star</p><br>
+            <p> Welcome, <?= $userData['name'] ?></p>
+        <?php endif; ?>
+            
             
             
         </div>  

@@ -9,8 +9,19 @@ class slowController extends BaseController
 {
     public function index()
     {
-        echo view('nav/header');
-        echo view('slw');
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        echo view('nav/header',['userData' => $userData]);
+        echo view('slw',['userData' => $userData]);
         echo view('nav/footer');
     }
 }

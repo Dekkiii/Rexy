@@ -9,14 +9,36 @@ class InternetMainController extends BaseController
 {
     public function index()
     {
-        echo view('nav/header');
-        echo view('internet_main');
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        echo view('nav/header',['userData' => $userData]);
+        echo view('internet_main',['userData' => $userData]);
         echo view('nav/footer');
     }
     public function nocon()
     {
-        echo view('nav/header');
-        echo view('noConnect');
+        $session = \Config\Services::session();
+        
+        // Get user data from session
+        $userData = $session->get('user');
+
+        // Check if user data exists
+        if (empty($userData)) {
+            // Redirect to login page
+            return redirect()->to('login');
+        }
+
+        echo view('nav/header',['userData' => $userData]);
+        echo view('noConnect',['userData' => $userData]);
         echo view('nav/footer');
     }
 }
